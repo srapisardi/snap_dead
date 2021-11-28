@@ -23,7 +23,7 @@ while not filter:
     elif selection == "5":
         filter = 'star.png'
     elif selection == "6":
-        filter = 'sunglasses.png'
+        filter = 'sunglass.png'
     else:
         print("Selection not available")
 
