@@ -1,8 +1,36 @@
 from cv2 import cv2
 import  cvzone
+
+OPTIONS = ["1. Beard", "2. Cool", "3. Native", "4. Pirate", "5. Star", "6. Sunglasses"]
+
+for choices in OPTIONS:
+    print(choices)
+
+
+
+filter = None
+
+while not filter:
+    selection = input("Enter a number to select a filter: ")
+    if selection == "1":
+        filter = 'beard.png'
+    elif selection == "2":
+        filter = 'cool.png'
+    elif selection == "3":
+        filter = 'native.png'
+    elif selection == "4":
+        filter = 'pirate.png'
+    elif selection == "5":
+        filter = 'star.png'
+    elif selection == "6":
+        filter = 'sunglasses.png'
+    else:
+        print("Selection not available")
+
+
 cap = cv2.VideoCapture(0)
 cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-overlay = cv2.imread('cool.png', cv2.IMREAD_UNCHANGED)
+overlay = cv2.imread(filter, cv2.IMREAD_UNCHANGED)
 while True:
     _, frame = cap.read()
     gray_scale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
